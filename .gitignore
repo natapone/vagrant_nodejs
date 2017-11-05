@@ -1,0 +1,8 @@
+.DS_Store
+*.swp
+.vagrant
+*~
+.bundle
+project/*
+src/*
+*-console.log
