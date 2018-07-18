@@ -21,3 +21,6 @@ Create folders
 # Run
 $ cd vagrant
 $ vagrant up
+
+# Install Node package via npm
+vagrant@ubuntu-xenial:~$ npm install -g learnyounode
