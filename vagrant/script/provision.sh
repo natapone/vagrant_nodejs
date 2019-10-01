@@ -4,7 +4,8 @@ main() {
     update_go
     util_go
     nodejs_go
-    npm_fix_path
+    # npm_fix_path
+    extra_go
     autoremove_go
 }
 
@@ -13,10 +14,21 @@ util_go() {
 }
 
 nodejs_go() {
-    curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-    apt-get install -y nodejs
-    apt-get install -y build-essential
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
+
+    sudo apt-get install -y gcc g++ make
+    sudo apt-get install -y nodejs
+
+    curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    sudo apt-get update && sudo apt-get install yarn
+
+
 }
+
+# extra_go() {
+#     apt install node-pre-gyp
+# }
 
 npm_fix_path() {
     mkdir /home/vagrant/node_modules
@@ -25,7 +37,7 @@ npm_fix_path() {
 
     chown -R vagrant:vagrant /home/vagrant/node_modules
 
-    # update 
+    # update
     npm i npm@latest -g
 }
 
