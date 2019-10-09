@@ -5,7 +5,7 @@ main() {
     util_go
     nodejs_go
     # npm_fix_path
-    extra_go
+    # extra_go
     autoremove_go
 }
 
