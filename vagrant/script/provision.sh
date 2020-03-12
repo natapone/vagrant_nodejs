@@ -4,8 +4,6 @@ main() {
     update_go
     util_go
     nodejs_go
-    # npm_fix_path
-    # extra_go
     autoremove_go
 }
 
@@ -14,7 +12,7 @@ util_go() {
 }
 
 nodejs_go() {
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
+    curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 
     sudo apt-get install -y gcc g++ make
     sudo apt-get install -y nodejs
@@ -24,21 +22,6 @@ nodejs_go() {
     sudo apt-get update && sudo apt-get install yarn
 
 
-}
-
-# extra_go() {
-#     apt install node-pre-gyp
-# }
-
-npm_fix_path() {
-    mkdir /home/vagrant/node_modules
-    echo "export PATH=/home/vagrant/node_modules/bin:$PATH" >> /home/vagrant/.bashrc
-    echo "npm config set prefix '/home/vagrant/node_modules'" >> /home/vagrant/.bashrc
-
-    chown -R vagrant:vagrant /home/vagrant/node_modules
-
-    # update
-    npm i npm@latest -g
 }
 
 update_go() {
